@@ -1,38 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #0ea5e9;
+    --primary-hover: #0284c7;
+    --text-main: #334155;
+    --text-muted: #64748b;
+    --bg-body: #f8fafc;
+    --bg-card: #ffffff;
+    --border-color: #e2e8f0;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    --radius-lg: 12px;
+    --radius-md: 8px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 html, body {
     margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.6;
 }
-body {
-    background-color: #f1f1f1;
-    display: flex;
-    justify-content: center;
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--primary-hover);
 }
 
 .wrapper {
-    width: 1200px;
+    max-width: 1200px;
     display: flex;
-    margin: 0 auto;
-    background-color: aquamarine;
+    margin: 40px auto;
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    min-height: 80vh;
 }
-.main {
-    display: flex;
-    flex-flow: column;
-    width: 85%;
-}
+
+/* Sidebar Menu */
 .menu {
-    width: 15%;
-    background-color: aqua;
-    padding: 10px 20px 0px;
+    width: 250px;
+    background-color: #f1f5f9;
+    padding: 30px 0;
+    border-right: 1px solid var(--border-color);
 }
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    margin-bottom: 5px;
+}
+
+.menu a {
+    display: block;
+    padding: 12px 30px;
+    color: var(--text-main);
+    font-weight: 500;
+    transition: all 0.2s;
+    border-left: 3px solid transparent;
+}
+
+.menu a:hover,
+.menu a.active {
+    background-color: #e2e8f0;
+    color: var(--primary-color);
+    border-left-color: var(--primary-color);
+}
+
+/* Main Content Area */
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
 .header {
-    background-color: rgb(5, 108, 108);
-    min-height: 150px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px 40px;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
 }
+
+.header img {
+    height: 70px;
+    width: auto;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    object-fit: cover;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+/* Content Area */
 .content {
-    background-color: white;
-    min-height: 300px;
-    padding: 20px;
+    flex: 1;
+    padding: 40px;
 }
+
+.content h2 {
+    color: #0f172a;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.content p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+}
+
+/* Footer */
 .footer {
-    background-color: rgb(99, 56, 240);
-    min-height: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 30px 40px;
+    background-color: #f8fafc;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.footer .contato p {
+    margin: 5px 0;
+}
+
+.footer .desenvolvido {
+    font-weight: 500;
+}
+
+/* Table styling for horarios.html */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 25px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+th, td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background-color: #f1f5f9;
+    font-weight: 600;
+    color: #334155;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover td {
+    background-color: #f8fafc;
+}
+
+/* Form styling for contato.html */
+form {
+    background: #f8fafc;
+    padding: 30px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    margin-top: 20px;
+}
+
+form label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: #475569;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    margin-bottom: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+}
+
+form button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Inter', sans-serif;
+}
+
+form button[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+    margin-right: 10px;
+}
+
+form button[type="submit"]:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(14, 165, 233, 0.25);
+}
+
+form button[type="reset"] {
+    background-color: #e2e8f0;
+    color: #475569;
+}
+
+form button[type="reset"]:hover {
+    background-color: #cbd5e1;
+}
+
+/* Map Iframe */
+iframe {
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 30px;
+    border: 1px solid var(--border-color) !important;
 }
